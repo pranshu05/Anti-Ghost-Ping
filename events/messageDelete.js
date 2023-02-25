@@ -11,16 +11,10 @@ module.exports = {
       guild_id: message.guild.id,
     });
     const regex = /<@!?(1|\d{17,19})>/;
+
     if (!activated) {
       return;
     } else {
-      if (
-        !message.guild.me
-          .permissionsIn(message.channel)
-          .has(Discord.Permissions.FLAGS.SEND_MESSAGES)
-      ) {
-        return;
-      } else {
         if (message.content.match(regex)) {
           console.log(
             `${message.author.username} ghost pinged in ${message.channel} in ${message.guild}`
@@ -51,7 +45,6 @@ module.exports = {
 
           message.channel.send({ embeds: [embed] });
         }
-      }
     }
   },
 };

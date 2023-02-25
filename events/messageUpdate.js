@@ -17,13 +17,6 @@ module.exports = {
     if (!activated) {
       return;
     } else {
-      if (
-        !message.guild.me
-          .permissionsIn(oldMessage.channel)
-          .has(Discord.Permissions.FLAGS.SEND_MESSAGES)
-      ) {
-        return;
-      }else{
 
         
         if (
@@ -56,7 +49,6 @@ module.exports = {
             embeds: [embed],
           });
         }
-      }
       }
     
   },
