@@ -17,13 +17,8 @@ module.exports = {
     if (!activated) {
       return;
     } else {
-      if (
-        !oldMessage.guild.me
-          .permissionsIn(oldMessage.channel)
-          .has(Discord.Permissions.FLAGS.SEND_MESSAGES)
-      ) {
-        return;
-      } else {
+     
+        
         if (
           oldMessage.content.match(regex) ||
           oldMessage.content.match("@everyone")
@@ -55,6 +50,6 @@ module.exports = {
           });
         }
       }
-    }
+    
   },
 };
