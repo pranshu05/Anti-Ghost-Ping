@@ -17,10 +17,8 @@ module.exports = {
               .setColor('RED')
               .setAuthor(oldMessage.author.username,  oldMessage.author.displayAvatarURL)
               .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
-              .addFields(
-                {name: 'Their OldMessage was', value: `${oldMessage.content}`},
-                {name: 'Their NewMessage ', value: `${newMessage.content}`}
-              )
+              .addField('Their OldMessage was', `${oldMessage.content}`)
+              .addField('Their NewMessage ', `${newMessage.content}`)
               oldMessage.channel.send({embeds: [embed]})
             }
         }

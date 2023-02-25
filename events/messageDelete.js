@@ -14,9 +14,7 @@ module.exports = {
               .setColor('#FF0000')
               .setAuthor(message.author.username, message.author.displayAvatarURL)
               .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
-              .addFields(
-                {name: 'Their Message',value: `${message.content}`},
-              )
+              .addField('Their Message', `${message.content}`)
               message.channel.send({ embeds: [embed] })
             }else if(message.content.match('@everyone')){
               console.log(`${message.author.username} ghost pinged everyone in ${message.channel} in ${message.guild}`)
@@ -24,9 +22,7 @@ module.exports = {
               .setColor('RED')
               .setAuthor(message.author.username, message.author.displayAvatarURL)
               .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
-              .addFields(
-                {name: 'Their Message',value: `${message.content}`}
-              )
+              .addField('Their Message', `${message.content}`)
               message.channel.send({ embeds: [embed] })
             }
         }
