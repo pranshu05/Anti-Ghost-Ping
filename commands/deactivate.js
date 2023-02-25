@@ -34,7 +34,7 @@ module.exports = {
       interaction.reply({ embeds: [insf_perms] });
       return;
     }
-    if (activated.length === 0) {
+    if (!activated) {
       interaction.reply(
         `Ghost ping detection isnt activated yet in this server!`
       );
