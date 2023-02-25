@@ -8,7 +8,7 @@ module.exports = {
     if (!message.content) return;
 
     const activated = await Activate.findOne({
-      guild_id: interaction.guild.id,
+      guild_id: message.guild.id,
     });
     const regex = /<@!?(1|\d{17,19})>/;
     if (!activated) {

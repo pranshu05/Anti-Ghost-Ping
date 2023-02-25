@@ -11,13 +11,20 @@ module.exports = {
     if(newMessage.content.length > 1024)
     newMessage.content = 'Message is too long to be displayed!'
     const activated = await Activate.findOne({
-      guild_id: interaction.guild.id,
+      guild_id: oldMessage.guild.id,
     });
     const regex = /<@!?(1|\d{17,19})>/;
     if (!activated) {
       return;
     } else {
-     
+      if (
+        !message.guild.me
+          .permissionsIn(oldMessage.channel)
+          .has(Discord.Permissions.FLAGS.SEND_MESSAGES)
+      ) {
+        return;
+      }else{
+
         
         if (
           oldMessage.content.match(regex) ||
@@ -49,6 +56,7 @@ module.exports = {
             embeds: [embed],
           });
         }
+      }
       }
     
   },
