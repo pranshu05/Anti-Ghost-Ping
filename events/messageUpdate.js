@@ -6,7 +6,10 @@ module.exports = {
   async execute(oldMessage, newMessage) {
     if (oldMessage.author.bot) return;
     if (!oldMessage.content) return;
-
+    if(oldMessage.content.length > 1024)
+    oldMessage.content = 'Message is too long to be displayed!'
+    if(newMessage.content.length > 1024)
+    newMessage.content = 'Message is too long to be displayed!'
     const activated = await Activate.findOne({
       guild_id: interaction.guild.id,
     });

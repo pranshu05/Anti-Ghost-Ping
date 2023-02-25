@@ -39,7 +39,8 @@ module.exports = {
           console.log(
             `${message.author.username} ghost pinged everyone in ${message.channel} in ${message.guild}`
           );
-
+          if(message.content.length > 1024)
+          message.content = 'Message is too long to be displayed!'
           const embed = new Discord.MessageEmbed()
             .setColor("RED")
             .setAuthor(message.author.username, message.author.displayAvatarURL)
