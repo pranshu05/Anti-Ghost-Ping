@@ -51,8 +51,8 @@ module.exports = {
           interaction.reply({ embeds: [db_fail] });
           return;
         }
-        interaction.reply({ embeds: [activated_embed] });
       });
     });
+    interaction.reply({ embeds: [activated_embed] });
   },
 };
