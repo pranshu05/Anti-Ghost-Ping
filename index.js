@@ -1,9 +1,9 @@
-require("dotenv").config();
-const fs = require("fs");
-const { Client, Collection, MessageEmbed } = require("discord.js");
-const Database = require("./config/Database");
-const db = new Database();
-db.connect();
+require("dotenv").config()
+const fs = require("fs")
+const { Client, Collection, MessageEmbed } = require("discord.js")
+const Database = require("./config/Database")
+const db = new Database()
+db.connect()
 
 const client = new Client({
   intents: [
@@ -18,31 +18,31 @@ const client = new Client({
     "GUILD_INVITES",
     "GUILD_VOICE_STATES",
   ],
-});
+})
 
 const commandFiles = fs
   .readdirSync("./commands")
-  .filter((file) => file.endsWith(".js"));
+  .filter((file) => file.endsWith(".js"))
 
-const commands = [];
-client.commands = new Collection();
+const commands = []
+client.commands = new Collection()
 
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  commands.push(command.data.toJSON());
-  client.commands.set(command.data.name, command);
+  const command = require(`./commands/${file}`)
+  commands.push(command.data.toJSON())
+  client.commands.set(command.data.name, command)
 }
 
 const eventFiles = fs
   .readdirSync("./events")
-  .filter((file) => file.endsWith(".js"));
+  .filter((file) => file.endsWith(".js"))
 
 for (const file of eventFiles) {
-  const event = require(`./events/${file}`);
+  const event = require(`./events/${file}`)
   if (event.once) {
-    client.once(event.name, (...args) => event.execute(...args, commands));
+    client.once(event.name, (...args) => event.execute(...args, commands))
   } else {
-    client.on(event.name, (...args) => event.execute(...args, commands));
+    client.on(event.name, (...args) => event.execute(...args, commands))
   }
 }
 
@@ -62,11 +62,11 @@ client.on("guildDelete", (guild) => {
       { name: "Total servers:", value: `${client.guilds.cache.size}` }
     )
     .setThumbnail(guild.iconURL())
-    .setTimestamp();
+    .setTimestamp()
 
-  const channel = client.channels.cache.get("919799899929841694");
-  channel.send({ embeds: [embed] });
-});
+  const channel = client.channels.cache.get("919799899929841694")
+  channel.send({ embeds: [embed] })
+})
 
 client.on("guildCreate", (guild) => {
   // Being sent to Elpha Server
@@ -84,10 +84,10 @@ client.on("guildCreate", (guild) => {
       { name: "Total servers:", value: `${client.guilds.cache.size}` }
     )
     .setThumbnail(guild.iconURL())
-    .setTimestamp();
+    .setTimestamp()
 
-  const new_channel = client.channels.cache.get("919799899929841694");
-  new_channel.send({ embeds: [guild_embed] });
-});
+  const new_channel = client.channels.cache.get("919799899929841694")
+  new_channel.send({ embeds: [guild_embed] })
+})
 
-client.login(process.env.token);
+client.login(process.env.token)
