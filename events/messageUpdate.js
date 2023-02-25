@@ -14,7 +14,7 @@ module.exports = {
       guild_id: interaction.guild.id,
     });
     const regex = /<@!?(1|\d{17,19})>/;
-    if (activated.length === 0) {
+    if (!activated) {
       return;
     } else {
       if (
