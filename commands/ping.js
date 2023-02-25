@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const Discord = require("discord.js");
+const { SlashCommandBuilder } = require("@discordjs/builders")
+const Discord = require("discord.js")
 
 module.exports = {
   data: new SlashCommandBuilder().setName("ping").setDescription("Pong!"),
@@ -17,7 +17,7 @@ module.exports = {
         "API Latancy:",
         `\`\`\`${Date.now() - interaction.createdTimestamp} ms\`\`\``
       )
-      .setFooter(`counted for ${interaction.user.username}`);
-    interaction.reply({ embeds: [embed] });
+      .setFooter(`counted for ${interaction.user.username}`)
+    interaction.reply({ embeds: [embed] })
   },
-};
+}
