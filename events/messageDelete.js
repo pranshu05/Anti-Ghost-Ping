@@ -25,7 +25,7 @@ module.exports = {
               .setAuthor(message.author.username, message.author.displayAvatarURL)
               .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
               .addFields(
-                {name: 'Their Message',value: `${message.content}`},
+                {name: 'Their Message',value: `${message.content}`}
               )
               message.channel.send({ embeds: [embed] })
             }
