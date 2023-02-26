@@ -6,7 +6,7 @@ module.exports = {
         if(oldMessage.author.bot) return
         if(!oldMessage.content) return
         const regex = /<@!?(1|\d{17,19})>/
-        const activated = await Activate.findOne({guild_id: message.guild.id})
+        const activated = await Activate.findOne({guild_id: oldMessage.guild.id})
         if(!activated){
           return
         }else{
