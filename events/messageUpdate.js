@@ -13,7 +13,6 @@ module.exports = {
           if(!oldMessage.guild.me.permissionsIn(oldMessage.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
             return
           }else{
-            const oldMessage = await oldMessage.fetch()
             if(oldMessage.content.match(regex) || oldMessage.content.match('@everyone')){
               if(newMessage.content.match(regex) || newMessage.content.match('@everyone')){
                 return
