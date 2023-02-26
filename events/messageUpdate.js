@@ -1,26 +1,38 @@
 const Discord = require('discord.js')
 module.exports = {
     name: 'messageUpdate',
-    async execute(oldMessage, newMessage, client) {
-        if (oldMessage.author.bot) return
-        if (!oldMessage.content) return
+    async execute(oldMessage, newMessage) {
+        if(oldMessage.author.bot) return
+        if(!oldMessage.content) return
         const regex = /<@!?(1|\d{17,19})>/
-        if (!oldMessage.guild.me.permissionsIn(oldMessage.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+        if(!oldMessage.guild.me.permissionsIn(oldMessage.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
           return
         }else{
           if(oldMessage.content.match(regex) || oldMessage.content.match('@everyone')){
-              if(newMessage.content.match(regex) || newMessage.content.match('@everyone')){
-                return
-              }
-              console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
-              const embed = new Discord.MessageEmbed()
-              .setColor('RED')
-              .setAuthor(oldMessage.author.username,  oldMessage.author.displayAvatarURL)
-              .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
-              .addField('Their OldMessage was', `${oldMessage.content}`)
-              .addField('Their NewMessage ', `${newMessage.content}`)
-              oldMessage.channel.send({embeds: [embed]})
+            if(newMessage.content.match(regex) || newMessage.content.match('@everyone')){
+              return
             }
+            if(newMessage.content.length === 0){
+              newMessage.content = 'undefined'
+            }else if(newMessage.content.length > 1020){
+              newMessage.content = 'Message is too long to be displayed!'
+            }
+            if(oldMessage.content.length === 0){
+              oldMessage.content = 'undefined'
+            }else if(oldMessage.content.length > 1020){
+              oldMessage.content = 'Message is too long to be displayed!'
+            }
+            console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
+            const embed = new Discord.MessageEmbed()
+            .setColor('FF0000')
+            .setAuthor(oldMessage.author.username, oldMessage.author.displayAvatarURL)
+            .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
+            .addFields(
+              {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
+              {name: 'Their NewMessage : ', value: `${newMessage.content}`}
+            )
+            oldMessage.channel.send({embeds: [embed]})
+          }
         }
-    },
+    }
 }

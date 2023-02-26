@@ -2,7 +2,6 @@ const { SlashCommandBuilder } = require("@discordjs/builders")
 const { Permissions } = require("discord.js")
 const Discord = require("discord.js")
 const Activate = require("../models/Guilds")
-
 module.exports = {
   data: new SlashCommandBuilder()
   .setName("deactivate")
