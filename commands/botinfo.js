@@ -36,11 +36,11 @@ module.exports = {
         let totalPeople = 0
         totalPeople = interaction.client.guilds.cache.map(person => person.memberCount).reduce(function (s, v) { return s + (v || 0) }, 0)
         const embed = new Discord.MessageEmbed()
-            .setColor('FFFF00')
-            .setThumbnail(interaction.client.user.displayAvatarURL())
-            .setTitle(interaction.client.user.username + ' V: ' + pkg.version + ' ' )
-            .setDescription(interaction.client.user.username + ' has been awake for ' + timeCon(process.uptime()))
-            .addFields(
+        .setColor('FFFF00')
+        .setThumbnail(interaction.client.user.displayAvatarURL())
+        .setTitle(interaction.client.user.username + ' V: ' + pkg.version + ' ' )
+        .setDescription(interaction.client.user.username + ' has been awake for ' + timeCon(process.uptime()))
+        .addFields(
             {name: '🏠 Guilds', value: `${interaction.client.guilds.cache.size}`},
             {name: '🤵 Total Users', value: `${(totalPeople)}`},
             {name: '🐏 RAM Usage', value: `${((process.memoryUsage().rss / 1024) / 1024).toFixed(2)} MB`},
@@ -49,7 +49,7 @@ module.exports = {
             {name: ':control_knobs: Library', value: `Discord JS v${Discord.version}`},
             {name: ':computer: Node.js Version', value: `${process.version}`},
             {name: 'Server', value: '[Click here](https://discord.gg/uJCX5yfuTf)'},
-            )
+        )
         interaction.reply({ embeds: [embed] })
     }
 }

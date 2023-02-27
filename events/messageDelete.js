@@ -17,23 +17,29 @@ module.exports = {
               console.log(`${message.author.username} ghost pinged in ${message.channel} in ${message.guild}`)
               const embed = new Discord.MessageEmbed()
               .setColor('FF0000')
-              .setAuthor(message.author.username, message.author.displayAvatarURL())
+              .setAuthor(
+                {name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`}
+              )
               .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
               .addFields(
                 {name: 'Their Message', value: `${message.content}`}
               )
               .setThumbnail(message.author.displayAvatarURL())
+              .setTimestamp()
               message.channel.send({embeds: [embed]})	
             }else if(message.content.match('@everyone')){
               console.log(`${message.author.username} ghost pinged everyone in ${message.channel} in ${message.guild}`)
               const embed = new Discord.MessageEmbed()
               .setColor('FF0000')
-              .setAuthor(message.author.username, message.author.displayAvatarURL())
+              .setAuthor(
+                {name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`}
+              )
               .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
               .addFields(
                 {name: 'Their Message', value: `${message.content}`}
               )
               .setThumbnail(message.author.displayAvatarURL())
+              .setTimestamp()
               message.channel.send({embeds: [embed]})	
             }
           }
