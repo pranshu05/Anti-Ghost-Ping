@@ -26,6 +26,8 @@ module.exports = {
       interaction.reply({ embeds: [insf_perms] })
       return
     }
+    const activated = await Activate.findOne({guild_id: interaction.guild.id})
+    if(activated) return interaction.reply('Ghost ping detection is already activated!')
     Activate.findOne({ guild_id: interaction.guild.id }, (err, settings) => {
       if(err){
         console.log(err)

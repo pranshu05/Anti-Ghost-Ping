@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const Activate = require("../models/Activates")
 const { MessageActionRow, MessageButton } = require('discord.js')
 module.exports = {
 	name: 'guildCreate',
@@ -20,6 +21,24 @@ module.exports = {
     	)
     	.setTimestamp()
 		channel.send({ embeds: [embed], components: [ser] }).catch((err) => console.log(err))
+		Activate.findOne({ guild_id: guild.id }, (err, settings) => {
+			if(err){
+			  console.log(err)
+			  return
+			}
+			if(!settings){
+			  settings = new Activate({
+				guild_id: guild.id,
+				activated: "true",
+			  })
+			}
+			settings.save((err) => {
+			  if(err){
+				console.log(err)
+				return
+			  }
+			})
+		  })
 		console.log(`Server joined: ${guild.name}`)
 	}
 }

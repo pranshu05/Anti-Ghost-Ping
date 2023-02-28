@@ -6,7 +6,7 @@ module.exports = {
     if (!guild.available) return
     const activated = await Activate.findOne({guild_id: guild.id})
     if(!activated) return
-    Activate.deleteOne({ guild_id: guild.id }, (err, settings) => {
+    Activate.deleteOne({ guild_id: guild.id }, (err) => {
       if(err){
         console.log(err)
         return
@@ -14,7 +14,7 @@ module.exports = {
     })
     const red = await Redirect.findOne({guild_id: guild.id})
     if(!red) return
-    Redirect.deleteOne({ guild_id: guild.id }, (err, settings) => {
+    Redirect.deleteOne({ guild_id: guild.id }, (err) => {
       if(err){
         console.log(err)
         return
