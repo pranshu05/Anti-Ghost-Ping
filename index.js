@@ -49,7 +49,7 @@ client.on('guildCreate' , guild => {
     )
     .setThumbnail(guild.iconURL())
     .setTimestamp()
-    client.channels.cache.get('919799899929841694').send({embeds: [guild_embed]})
+    client.channels.cache.get('1079988516542496808').send({embeds: [guild_embed]})
 })
 client.on('guildDelete' , guild => {
     if(guild.available){
@@ -65,7 +65,7 @@ client.on('guildDelete' , guild => {
         )
         .setThumbnail(guild.iconURL())
         .setTimestamp()
-        client.channels.cache.get('919799899929841694').send({embeds: [embed]})	
+        client.channels.cache.get('1079988516542496808').send({embeds: [embed]})	
     }
 })
 client.login(process.env.token)
