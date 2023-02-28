@@ -21,6 +21,7 @@ module.exports = {
     .setColor("#FF0000")
     .setTitle(`**:x: DataBase Error!**`)
     .setDescription(`An error occurred in the database!`)
+    .setImage('https://media.discordapp.net/attachments/1079259438566883349/1080014089163649094/image.png')
     if(!interaction.member.permissions.has([Permissions.FLAGS.MANAGE_MASSAGES])){
       interaction.reply({ embeds: [insf_perms] })
       return
