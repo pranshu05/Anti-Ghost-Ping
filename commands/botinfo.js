@@ -41,14 +41,13 @@ module.exports = {
         .setTitle(interaction.client.user.username + ' V: ' + pkg.version + ' ' )
         .setDescription(interaction.client.user.username + ' has been awake for ' + timeCon(process.uptime()))
         .addFields(
-            {name: '🏠 Guilds', value: `${interaction.client.guilds.cache.size}`},
-            {name: '🤵 Total Users', value: `${(totalPeople)}`},
-            {name: '🐏 RAM Usage', value: `${((process.memoryUsage().rss / 1024) / 1024).toFixed(2)} MB`},
-            {name: ':floppy_disk: System Uptime', value: `${timeCon(os.uptime())}`},
-            {name: '🏓 Ping', value: `${(interaction.client.ws.ping).toFixed(0)} ms`},
-            {name: ':control_knobs: Library', value: `Discord JS v${Discord.version}`},
-            {name: ':computer: Node.js Version', value: `${process.version}`},
-            {name: 'Server', value: '[Click here](https://discord.gg/uJCX5yfuTf)'},
+            {name: '🏠 Guilds', value: `${interaction.client.guilds.cache.size}`, inline: true},
+            {name: '🤵 Total Users', value: `${(totalPeople)}`, inline: true},
+            {name: ':floppy_disk: System Uptime', value: `${timeCon(os.uptime())}`, inline: true},
+            {name: '🏓 Ping', value: `${(interaction.client.ws.ping).toFixed(0)} ms`, inline: true},
+            {name: ':control_knobs: Library', value: `Discord JS v${Discord.version}`, inline: true},
+            {name: ':computer: Node.js Version', value: `${process.version}`, inline: true},
+            {name: 'Server', value: '[Click here](https://discord.gg/uJCX5yfuTf)', inline: true},
         )
         interaction.reply({ embeds: [embed] })
     }
