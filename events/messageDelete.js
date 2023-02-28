@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const Activate = require('../models/Guilds')
+const Activate = require('../models/Activates')
 const Redirect = require('../models/Redirects')
 module.exports = {
     name: 'messageDelete',
