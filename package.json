@@ -1,6 +1,6 @@
 {
   "name": "ghost_ping",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "ghost ping detector bot",
   "main": "index.js",
   "scripts": {
