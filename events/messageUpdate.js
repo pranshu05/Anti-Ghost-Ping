@@ -37,7 +37,7 @@ module.exports = {
                 console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
-                .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
+                .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})
                 .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
                 .addFields(
                   {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
