@@ -20,7 +20,7 @@ module.exports = {
       		{name: "Deactivate Ghost Ping detection", value: "```/deactivate```", inline: true},
     	)
     	.setTimestamp()
-		channel.send({ embeds: [embed], components: [ser] }).catch((err) => console.log(err))
+		.setFooter({text: `Ghost ping detection is activated by default!`})
 		Activate.findOne({ guild_id: guild.id }, (err, settings) => {
 			if(err){
 			  console.log(err)
@@ -40,5 +40,10 @@ module.exports = {
 			})
 		  })
 		console.log(`Server joined: ${guild.name}`)
+		if(channel){
+			channel.send({ embeds: [embed], components: [ser] }).catch((err) => console.log(err))
+		}else{
+			return
+		}
 	}
 }

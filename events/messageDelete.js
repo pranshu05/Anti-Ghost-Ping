@@ -86,7 +86,10 @@ module.exports = {
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
-                  .addFields({name: 'Their Message', value: `${message.content}`})
+                  .addFields(
+                    {name: 'Their Message', value: `${message.content}`},
+                    {name: 'channel' , value: `${message.channel}`}
+                    )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
                   channel.send({embeds: [embed]})	
@@ -95,7 +98,10 @@ module.exports = {
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
-                  .addFields({name: 'Their Message', value: `${message.content}`})
+                  .addFields(
+                    {name: 'Their Message', value: `${message.content}`},
+                    {name: 'channel' , value: `${message.channel}`}
+                    )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
                   channel.send({embeds: [embed]})	
