@@ -30,8 +30,9 @@ module.exports = {
                 }else if(oldMessage.content.length > 1020){
                   oldMessage.content = 'Message is too long to be displayed!'
                 }
-                if(oldMessage.mentions.members.length > 1020){
-                  oldMessage.mentions.members = 'Oof there are so many mentions to be displayed!'
+                let map = oldMessage.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                if(map.length > 1020){
+                  map = 'Oof there are so many mentions to be displayed!'
                 }
                 console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                 const embed = new Discord.MessageEmbed()
@@ -41,7 +42,7 @@ module.exports = {
                 .addFields(
                   {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
                   {name: 'Their NewMessage : ', value: `${newMessage.content}`},
-                  {name: 'Mention :' , value: `${oldMessage.mentions.members}`}
+                  {name: 'Mention :' , value: `${map}`}
                 )
                 .setThumbnail(oldMessage.author.displayAvatarURL())
                 .setTimestamp()
@@ -68,8 +69,9 @@ module.exports = {
                   }else if(oldMessage.content.length > 1020){
                     oldMessage.content = 'Message is too long to be displayed!'
                   }
-                  if(oldMessage.mentions.members.length > 1020){
-                    oldMessage.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  let map = oldMessage.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                  if(map.length > 1020){
+                    map = 'Oof there are so many mentions to be displayed!'
                   }
                   console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   const embed = new Discord.MessageEmbed()
@@ -79,7 +81,7 @@ module.exports = {
                   .addFields(
                     {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
                     {name: 'Their NewMessage : ', value: `${newMessage.content}`},
-                    {name: 'Mention :' , value: `${oldMessage.mentions.members}`}
+                    {name: 'Mention :' , value: `${map}`}
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
@@ -104,8 +106,9 @@ module.exports = {
                   }else if(oldMessage.content.length > 1020){
                     oldMessage.content = 'Message is too long to be displayed!'
                   }
-                  if(oldMessage.mentions.members.length > 1020){
-                    oldMessage.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  let map = oldMessage.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                  if(map.length > 1020){
+                    map = 'Oof there are so many mentions to be displayed!'
                   }
                   console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   const embed = new Discord.MessageEmbed()
@@ -115,7 +118,7 @@ module.exports = {
                   .addFields(
                     {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
                     {name: 'Their NewMessage : ', value: `${newMessage.content}`},
-                    {name: 'Mention :' , value: `${oldMessage.mentions.members}`},
+                    {name: 'Mention :' , value: `${map}`},
                     {name: 'channel :' , value: `${oldMessage.channel}`}
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())

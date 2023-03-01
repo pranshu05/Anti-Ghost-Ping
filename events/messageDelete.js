@@ -22,8 +22,9 @@ module.exports = {
                 }else if(message.content.length > 1020){
                   message.content = 'Message is too long to be displayed!'
                 }
-                if(message.mentions.members.length > 1020){
-                  message.mentions.members = 'Oof there are so many mentions to be displayed!'
+                let map = message.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                if(map.length > 1020){
+                  map = 'Oof there are so many mentions to be displayed!'
                 }
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
@@ -31,7 +32,7 @@ module.exports = {
                 .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
                 .addFields(
                   {name: 'Their Message :', value: `${message.content}`},
-                  {name: 'Mentions :' , value: `${message.mentions.members}`}
+                  {name: 'Mentions :' , value: `${map}`}
                 )
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
@@ -59,8 +60,9 @@ module.exports = {
                   }else if(message.content.length > 1020){
                     message.content = 'Message is too long to be displayed!'
                   }
-                  if(message.mentions.members.length > 1020){
-                    message.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  let map = message.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                  if(map.length > 1020){
+                    map = 'Oof there are so many mentions to be displayed!'
                   }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
@@ -68,7 +70,7 @@ module.exports = {
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
                   .addFields(
                     {name: 'Their Message :', value: `${message.content}`},
-                    {name: 'Mentions :' , value: `${message.mentions.members}`}
+                    {name: 'Mentions :' , value: `${map}`}
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
@@ -94,8 +96,9 @@ module.exports = {
                   }else if(message.content.length > 1020){
                     message.content = 'Message is too long to be displayed!'
                   }
-                  if(message.mentions.members.length > 1020){
-                    message.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  let map = message.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                  if(map.length > 1020){
+                    map = 'Oof there are so many mentions to be displayed!'
                   }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
@@ -103,7 +106,7 @@ module.exports = {
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
                   .addFields(
                     {name: 'Their Message :', value: `${message.content}`},
-                    {name: 'Mentions :' , value: `${message.mentions.members}`},
+                    {name: 'Mentions :' , value: `${map}`},
                     {name: 'channel :' , value: `${message.channel}`}
                   )
                   .setThumbnail(message.author.displayAvatarURL())
@@ -115,8 +118,8 @@ module.exports = {
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
                   .addFields(
-                    {name: 'Their Message', value: `${message.content}`},
-                    {name: 'channel' , value: `${message.channel}`}
+                    {name: 'Their Message :', value: `${message.content}`},
+                    {name: 'channel :' , value: `${message.channel}`}
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
