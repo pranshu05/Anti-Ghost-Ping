@@ -22,7 +22,7 @@ module.exports = {
                 }else if(message.content.length > 1020){
                   message.content = 'Message is too long to be displayed!'
                 }
-                let map = message.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(" ")
                 if(map.length > 1020){
                   map = 'Oof there are so many mentions to be displayed!'
                 }
@@ -60,7 +60,7 @@ module.exports = {
                   }else if(message.content.length > 1020){
                     message.content = 'Message is too long to be displayed!'
                   }
-                  let map = message.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                  let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(" ")
                   if(map.length > 1020){
                     map = 'Oof there are so many mentions to be displayed!'
                   }
@@ -96,7 +96,7 @@ module.exports = {
                   }else if(message.content.length > 1020){
                     message.content = 'Message is too long to be displayed!'
                   }
-                  let map = message.mentions.members.cache.sort((a, b) => b.position - a.position).map(r => r).join(" ")
+                  let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(" ")
                   if(map.length > 1020){
                     map = 'Oof there are so many mentions to be displayed!'
                   }
