@@ -44,8 +44,10 @@ module.exports = {
       if(!settings){
         settings = new Redirect({
           guild_id: interaction.guild.id,
-          channel_id: interaction.options.getChannel('redirect_channel').id,
+          channel_id: interaction.options.getChannel('redirect_channel').id
         })
+      }else{
+        settings.channel_id: interaction.options.getChannel('redirect_channel').id
       }
       settings.save((err) => {
         if(err){
