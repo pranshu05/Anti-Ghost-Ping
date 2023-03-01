@@ -47,8 +47,9 @@ module.exports = {
           channel_id: interaction.options.getChannel('redirect_channel').id
         })
       }else{
-        settings.channel_id: interaction.options.getChannel('redirect_channel').id
+        settings.channel_id = interaction.options.getChannel('redirect_channel').id
       }
+      
       settings.save((err) => {
         if(err){
           console.log(err)
