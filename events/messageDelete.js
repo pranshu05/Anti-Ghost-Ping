@@ -22,11 +22,17 @@ module.exports = {
                 }else if(message.content.length > 1020){
                   message.content = 'Message is too long to be displayed!'
                 }
+                if(message.mentions.members.length > 1020){
+                  message.mentions.members = 'Oof there are so many mentions to be displayed!'
+                }
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
                 .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                 .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
-                .addFields({name: 'Their Message', value: `${message.content}`})
+                .addFields(
+                  {name: 'Their Message :', value: `${message.content}`},
+                  {name: 'Mentions :' , value: `${message.mentions.members}`}
+                )
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
                 message.channel.send({embeds: [embed]})	
@@ -35,7 +41,7 @@ module.exports = {
                 .setColor('FF0000')
                 .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                 .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
-                .addFields({name: 'Their Message', value: `${message.content}`})
+                .addFields({name: 'Their Message :', value: `${message.content}`})
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
                 message.channel.send({embeds: [embed]})	
@@ -53,11 +59,17 @@ module.exports = {
                   }else if(message.content.length > 1020){
                     message.content = 'Message is too long to be displayed!'
                   }
+                  if(message.mentions.members.length > 1020){
+                    message.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
-                  .addFields({name: 'Their Message', value: `${message.content}`})
+                  .addFields(
+                    {name: 'Their Message :', value: `${message.content}`},
+                    {name: 'Mentions :' , value: `${message.mentions.members}`}
+                  )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
                   message.channel.send({embeds: [embed]})	
@@ -66,7 +78,7 @@ module.exports = {
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
-                  .addFields({name: 'Their Message', value: `${message.content}`})
+                  .addFields({name: 'Their Message :', value: `${message.content}`})
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
                   message.channel.send({embeds: [embed]})	
@@ -82,14 +94,18 @@ module.exports = {
                   }else if(message.content.length > 1020){
                     message.content = 'Message is too long to be displayed!'
                   }
+                  if(message.mentions.members.length > 1020){
+                    message.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
                   .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
                   .addFields(
-                    {name: 'Their Message', value: `${message.content}`},
-                    {name: 'channel' , value: `${message.channel}`}
-                    )
+                    {name: 'Their Message :', value: `${message.content}`},
+                    {name: 'Mentions :' , value: `${message.mentions.members}`},
+                    {name: 'channel :' , value: `${message.channel}`}
+                  )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
                   channel.send({embeds: [embed]})	
@@ -101,7 +117,7 @@ module.exports = {
                   .addFields(
                     {name: 'Their Message', value: `${message.content}`},
                     {name: 'channel' , value: `${message.channel}`}
-                    )
+                  )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
                   channel.send({embeds: [embed]})	

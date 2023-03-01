@@ -30,6 +30,9 @@ module.exports = {
                 }else if(oldMessage.content.length > 1020){
                   oldMessage.content = 'Message is too long to be displayed!'
                 }
+                if(oldMessage.mentions.members.length > 1020){
+                  oldMessage.mentions.members = 'Oof there are so many mentions to be displayed!'
+                }
                 console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
@@ -37,7 +40,8 @@ module.exports = {
                 .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
                 .addFields(
                   {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
-                  {name: 'Their NewMessage : ', value: `${newMessage.content}`}
+                  {name: 'Their NewMessage : ', value: `${newMessage.content}`},
+                  {name: 'Mention :' , value: `${oldMessage.mentions.members}`}
                 )
                 .setThumbnail(oldMessage.author.displayAvatarURL())
                 .setTimestamp()
@@ -64,6 +68,9 @@ module.exports = {
                   }else if(oldMessage.content.length > 1020){
                     oldMessage.content = 'Message is too long to be displayed!'
                   }
+                  if(oldMessage.mentions.members.length > 1020){
+                    oldMessage.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  }
                   console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
@@ -71,7 +78,8 @@ module.exports = {
                   .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
                   .addFields(
                     {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
-                    {name: 'Their NewMessage : ', value: `${newMessage.content}`}
+                    {name: 'Their NewMessage : ', value: `${newMessage.content}`},
+                    {name: 'Mention :' , value: `${oldMessage.mentions.members}`}
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
@@ -96,6 +104,9 @@ module.exports = {
                   }else if(oldMessage.content.length > 1020){
                     oldMessage.content = 'Message is too long to be displayed!'
                   }
+                  if(oldMessage.mentions.members.length > 1020){
+                    oldMessage.mentions.members = 'Oof there are so many mentions to be displayed!'
+                  }
                   console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
@@ -104,7 +115,8 @@ module.exports = {
                   .addFields(
                     {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
                     {name: 'Their NewMessage : ', value: `${newMessage.content}`},
-                    {name: 'channel' , value: `${oldMessage.channel}`}
+                    {name: 'Mention :' , value: `${oldMessage.mentions.members}`},
+                    {name: 'channel :' , value: `${oldMessage.channel}`}
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
