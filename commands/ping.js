@@ -13,9 +13,7 @@ module.exports = {
           {name: 'Latancy:', value: `\`\`\`${(interaction.client.ws.ping).toFixed(0)} ms\`\`\``, inline: true},
           {name: 'API Latancy:', value: `\`\`\`${Date.now() - interaction.createdTimestamp} ms\`\`\``, inline: true}
         )
-        .setFooter(
-            {text: `counted for ${interaction.user.username}`}
-        )
+        .setFooter({text: `counted for ${interaction.user.username}`})
         interaction.reply({ embeds: [embed] })
     }
 }

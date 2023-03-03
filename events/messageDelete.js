@@ -17,15 +17,10 @@ module.exports = {
               return
             }else{
               if(message.content.match(regex)){
-                if(message.content.length === 0){
-                  message.content = 'undefined'
-                }else if(message.content.length > 1020){
-                  message.content = 'Message is too long to be displayed!'
-                }
-                let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(" ")
-                if(map.length > 1020){
-                  map = 'Oof there are so many mentions to be displayed!'
-                }
+                if(message.content.length === 0){ message.content = 'undefined'
+                }else if(message.content.length > 1020){ message.content = 'Message is too long to be displayed!' }
+                let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
+                if(map.length > 1020){ map = 'Oof there are so many mentions to be displayed!' }
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
                 .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
@@ -55,15 +50,10 @@ module.exports = {
                 return
               }else{
                 if(message.content.match(regex)){
-                  if(message.content.length === 0){
-                    message.content = 'undefined'
-                  }else if(message.content.length > 1020){
-                    message.content = 'Message is too long to be displayed!'
-                  }
-                  let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(" ")
-                  if(map.length > 1020){
-                    map = 'Oof there are so many mentions to be displayed!'
-                  }
+                  if(message.content.length === 0){ message.content = 'undefined'
+                  }else if(message.content.length > 1020){ message.content = 'Message is too long to be displayed!' }
+                  let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
+                  if(map.length > 1020){ map = 'Oof there are so many mentions to be displayed!' }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
@@ -91,15 +81,10 @@ module.exports = {
                 return
               }else{
                 if(message.content.match(regex)){
-                  if(message.content.length === 0){
-                    message.content = 'undefined'
-                  }else if(message.content.length > 1020){
-                    message.content = 'Message is too long to be displayed!'
-                  }
-                  let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(" ")
-                  if(map.length > 1020){
-                    map = 'Oof there are so many mentions to be displayed!'
-                  }
+                  if(message.content.length === 0){ message.content = 'undefined'
+                  }else if(message.content.length > 1020){ message.content = 'Message is too long to be displayed!' }
+                  let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
+                  if(map.length > 1020){ map = 'Oof there are so many mentions to be displayed!' }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})

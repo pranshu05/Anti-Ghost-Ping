@@ -1,7 +1,7 @@
-const Redirect = require("../models/Redirects")
-const Activate = require("../models/Activates")
+const Redirect = require('../models/Redirects')
+const Activate = require('../models/Activates')
 module.exports = {
-  name: "guildDelete",
+  name: 'guildDelete',
   async execute(guild) {
     if (!guild.available) return
     const activated = await Activate.findOne({guild_id: guild.id})

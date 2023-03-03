@@ -4,9 +4,7 @@ module.exports = {
     async execute(interaction){
         const err_embed = new Discord.MessageEmbed()
         .setColor('FF0000')
-        .setAuthor(
-            {name: `Error Occured!`, iconURL: `${interaction.client.user.displayAvatarURL()}`}
-        )
+        .setAuthor({name: `Error Occured!`, iconURL: `${interaction.client.user.displayAvatarURL()}`})
         .setTitle('An error occured while executing the command')
         .setImage('https://media.discordapp.net/attachments/1079259438566883349/1080014089163649094/image.png')
         .setTimestamp()
