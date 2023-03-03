@@ -6,11 +6,11 @@ module.exports = {
     once: true,
     execute(client, commands){
         console.debug('ready!')
-        const status = '/activate'
-        client.user.setStatus('online')
+        const status = "/activate"
+        client.user.setStatus("online")
         client.user.setActivity(status, {
-            type: 'STREAMING',
-            url: 'https://www.youtube.com/watch?v=VDjapkV9XGM&feature=youtu.be',
+            type: "STREAMING",
+            url: "https://www.youtube.com/watch?v=VDjapkV9XGM&feature=youtu.be",
         })
         const CLIENT_ID = client.user.id
         const rest = new REST ({
