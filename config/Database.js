@@ -4,6 +4,7 @@ class Database {
 	constructor(){ this.connection = null }
 	connect(){
 		console.log('Connecting to database...')
+		mongoose.set('strictQuery', true)
 		mongoose.connect(process.env.MONGO_URL, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
