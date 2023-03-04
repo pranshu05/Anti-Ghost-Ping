@@ -26,7 +26,7 @@ module.exports = {
             { name: '\u200B', value: '\u200B' },
             {name: '🏠 Guilds', value: `\`\`\`xl\n${interaction.client.guilds.cache.size}\`\`\``, inline: true},
             {name: '🤵 Total Users', value: `\`\`\`xl\n${(totalPeople)}\`\`\``, inline: true},
-            {name: ':floppy_disk: System Uptime', value:  `\`\`\`xl\n${days}d, ${hours}h, ${minutes}m, ${seconds}s\n\`\`\``, inline: true},
+            {name: ':floppy_disk: Uptime', value:  `\`\`\`xl\n${days}d, ${hours}h, ${minutes}m, ${seconds}s\n\`\`\``, inline: true},
             {name: '🏓 Ping', value: `\`\`\`xl\n${(interaction.client.ws.ping).toFixed(0)} ms\`\`\``, inline: true},
             {name: ':control_knobs: Library', value: `\`\`\`xl\ndiscord.js v${Discord.version}\`\`\``, inline: true},
             {name: ':computer: Node.js Version', value: `\`\`\`xl\n${process.version}\`\`\``, inline: true},
