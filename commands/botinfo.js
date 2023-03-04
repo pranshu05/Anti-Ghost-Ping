@@ -20,7 +20,6 @@ module.exports = {
         .setColor('FFFF00')
         .setThumbnail(interaction.client.user.displayAvatarURL())
         .setTitle(interaction.client.user.username + ' V: ' + pkg.version + ' ' )
-        .setDescription(interaction.client.user.username + ' has been awake for ' + `${ms(process.uptime(), { long: true })}`)
         .addFields(
             { name: '\u200B', value: '\u200B' },
             {name: '🏠 Guilds', value: `\`\`\`${interaction.client.guilds.cache.size}\`\`\``, inline: true},
