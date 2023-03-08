@@ -20,9 +20,12 @@ module.exports = {
           oldMessage.content = 'Message is too long to be displayed!'
         }
         let old_map = oldMessage.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
-        let new_map = newMessage.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
         if(old_map.length > 1020){
           old_map = 'Oof there are so many mentions to be displayed!'
+        }
+        let new_map = newMessage.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
+        if(new_map.length > 1020){
+          new_map = 'Oof there are so many mentions to be displayed!'
         }
         const embed = new Discord.MessageEmbed()
         .setColor('FF0000')
@@ -31,7 +34,8 @@ module.exports = {
         .addFields(
           {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
           {name: 'Their NewMessage : ', value: `${newMessage.content}`},
-          {name: 'Mention :' , value: `${old_map}`}
+          {name: 'Old Mentions :' , value: `${old_map}`},
+          {name: 'New Mentions :' , value: `${new_map}`}
         )
         .setThumbnail(oldMessage.author.displayAvatarURL())
         .setTimestamp()
@@ -80,7 +84,8 @@ module.exports = {
                   .addFields(
                     {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
                     {name: 'Their NewMessage : ', value: `${newMessage.content}`},
-                    {name: 'Mention :' , value: `${old_map}`},
+                    {name: 'Old Mentions :' , value: `${old_map}`},
+                    {name: 'New Mentions :' , value: `${new_map}`},
                     {name: 'channel :' , value: `${oldMessage.channel}`}
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())
