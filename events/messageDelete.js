@@ -13,7 +13,7 @@ module.exports = {
           return
         }else{
           if(!redirected){
-            if(!message.Guild.members.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+            if(!message.guild.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
               return
             }else{
               if(message.content.match(regex)){
@@ -31,7 +31,6 @@ module.exports = {
                 )
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
-                console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                 message.channel.send({embeds: [embed]})	
               }else if(message.content.match('@everyone')){
                 const embed = new Discord.MessageEmbed()
@@ -41,14 +40,13 @@ module.exports = {
                 .addFields({name: 'Their Message :', value: `${message.content}`})
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
-                console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                 message.channel.send({embeds: [embed]})	
               }
             }
           }else{
             const channel = message.guild.channels.cache.get(redirected.channel_id)
             if(!channel){
-              if(!message.Guild.members.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+              if(!message.guild.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
                 if(message.content.match(regex)){
@@ -66,7 +64,6 @@ module.exports = {
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
-                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                   message.channel.send({embeds: [embed]})	
                 }else if(message.content.match('@everyone')){
                   const embed = new Discord.MessageEmbed()
@@ -76,12 +73,12 @@ module.exports = {
                   .addFields({name: 'Their Message :', value: `${message.content}`})
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
-                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
+                  console.log(z)
                   message.channel.send({embeds: [embed]})	
                 }
               }
             }else{
-              if(!message.Guild.members.me.permissionsIn(channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+              if(!message.guild.me.permissionsIn(channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
                 if(message.content.match(regex)){
@@ -100,7 +97,6 @@ module.exports = {
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
-                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                   channel.send({embeds: [embed]})	
                 }else if(message.content.match('@everyone')){
                   const embed = new Discord.MessageEmbed()
@@ -113,7 +109,6 @@ module.exports = {
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
-                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                   channel.send({embeds: [embed]})	
                 }
               }

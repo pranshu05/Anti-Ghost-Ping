@@ -25,7 +25,7 @@ module.exports = {
           return
         }else{
           if(!redirected){
-            if(!oldMessage.Guild.members.me.permissionsIn(oldMessage.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+            if(!oldMessage.guild.me.permissionsIn(oldMessage.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
               return
             }else{
               if(oldMessage.content.match(regex) || oldMessage.content.match('@everyone')){
@@ -59,7 +59,7 @@ module.exports = {
           }else{
             const channel = oldMessage.guild.channels.cache.get(redirected.channel_id)
             if(!channel){
-              if(!oldMessage.Guild.members.me.permissionsIn(oldMessage.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+              if(!oldMessage.guild.me.permissionsIn(oldMessage.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
                 if(oldMessage.content.match(regex) || oldMessage.content.match('@everyone')){
@@ -91,7 +91,7 @@ module.exports = {
                 }
               }
             }else{
-              if(!oldMessage.Guild.members.me.permissionsIn(channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+              if(!oldMessage.guild.me.permissionsIn(channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
                 if(oldMessage.content.match(regex) || oldMessage.content.match('@everyone')){
