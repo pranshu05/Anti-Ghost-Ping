@@ -24,12 +24,12 @@ module.exports = {
         .setTitle(interaction.client.user.username + ' V: ' + pkg.version + ' ' )
         .addFields(
             { name: '\u200B', value: '\u200B' },
-            {name: '🏠 Guilds', value: `\`\`\`xl\n${interaction.client.guilds.cache.size}\`\`\``, inline: true},
-            {name: '🤵 Total Users', value: `\`\`\`xl\n${(totalPeople)}\`\`\``, inline: true},
-            {name: ':floppy_disk: Uptime', value:  `\`\`\`xl\n${days}d, ${hours}h, ${minutes}m, ${seconds}s\n\`\`\``, inline: true},
-            {name: '🏓 Ping', value: `\`\`\`xl\n${(interaction.client.ws.ping).toFixed(0)} ms\`\`\``, inline: true},
-            {name: ':control_knobs: Library', value: `\`\`\`xl\ndiscord.js v${Discord.version}\`\`\``, inline: true},
-            {name: ':computer: Node.js Version', value: `\`\`\`xl\n${process.version}\`\`\``, inline: true},
+            {name: '🏠 Guilds', value: `\`\`\`yml\n${interaction.client.guilds.cache.size}\`\`\``, inline: true},
+            {name: '🤵 Total Users', value: `\`\`\`yml\n${(totalPeople)}\`\`\``, inline: true},
+            {name: ':floppy_disk: Uptime', value:  `\`\`\`yml\n${days}d, ${hours}h, ${minutes}m, ${seconds}s\n\`\`\``, inline: true},
+            {name: '🏓 Ping', value: `\`\`\`yml\n${(interaction.client.ws.ping).toFixed(0)} ms\`\`\``, inline: true},
+            {name: ':control_knobs: Library', value: `\`\`\`yml\ndiscord.js v${Discord.version}\`\`\``, inline: true},
+            {name: ':computer: Node.js Version', value: `\`\`\`yml\n${process.version}\`\`\``, inline: true},
             {name: 'Server', value: '[Click here](https://discord.gg/uJCX5yfuTf)', inline: true},
         )
         interaction.reply({ embeds: [embed] })
