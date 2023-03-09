@@ -20,25 +20,7 @@ module.exports = {
           oldMessage.content = 'Message is too long to be displayed!'
         }
         let old_map = oldMessage.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
-        if(old_map.length > 1020){
-          old_map = 'Oof there are so many mentions to be displayed!'
-        }
         let new_map = newMessage.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
-        if(new_map.length > 1020){
-          new_map = 'Oof there are so many mentions to be displayed!'
-        }
-        const embed = new Discord.MessageEmbed()
-        .setColor('FF0000')
-        .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})
-        .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
-        .addFields(
-          {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
-          {name: 'Their NewMessage : ', value: `${newMessage.content}`},
-          {name: 'Old Mentions :' , value: `${old_map}`},
-          {name: 'New Mentions :' , value: `${new_map}`}
-        )
-        .setThumbnail(oldMessage.author.displayAvatarURL())
-        .setTimestamp()
         if(!activated){
           return
         }else{
@@ -50,6 +32,26 @@ module.exports = {
                 if(old_map === new_map || newMessage.content.match('@everyone')){
                   return
                 }
+                if(old_map.length > 1020){
+                  old_map = 'Oof there are so many mentions to be displayed!'
+                }
+                if(new_map.length > 1020){
+                  new_map = 'Oof there are so many mentions to be displayed!'
+                }else if(new_map.length === 0){
+                  new_map = 'None!'
+                }
+                const embed = new Discord.MessageEmbed()
+                .setColor('FF0000')
+                .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})
+                .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
+                .addFields(
+                  {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
+                  {name: 'Their NewMessage : ', value: `${newMessage.content}`},
+                  {name: 'Old Mentions :' , value: `${old_map}`},
+                  {name: 'New Mentions :' , value: `${new_map}`}
+                )
+                .setThumbnail(oldMessage.author.displayAvatarURL())
+                .setTimestamp()
                 console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                 oldMessage.channel.send({embeds: [embed]})
               }
@@ -64,6 +66,26 @@ module.exports = {
                   if(old_map === new_map || newMessage.content.match('@everyone')){
                     return
                   }
+                  if(old_map.length > 1020){
+                    old_map = 'Oof there are so many mentions to be displayed!'
+                  }
+                  if(new_map.length > 1020){
+                    new_map = 'Oof there are so many mentions to be displayed!'
+                  }else if(new_map.length === 0){
+                    new_map = 'None!'
+                  }
+                  const embed = new Discord.MessageEmbed()
+                  .setColor('FF0000')
+                  .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})
+                  .setDescription(`Well well well, <@${oldMessage.author.id}> decided to edit their ghost pinged message...`)
+                  .addFields(
+                    {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
+                    {name: 'Their NewMessage : ', value: `${newMessage.content}`},
+                    {name: 'Old Mentions :' , value: `${old_map}`},
+                    {name: 'New Mentions :' , value: `${new_map}`}
+                  )
+                  .setThumbnail(oldMessage.author.displayAvatarURL())
+                  .setTimestamp()
                   console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   oldMessage.channel.send({embeds: [embed]})
                 }
@@ -75,6 +97,14 @@ module.exports = {
                 if(oldMessage.content.match(regex) || oldMessage.content.match('@everyone')){
                   if(old_map === new_map || newMessage.content.match('@everyone')){
                     return
+                  }
+                  if(old_map.length > 1020){
+                    old_map = 'Oof there are so many mentions to be displayed!'
+                  }
+                  if(new_map.length > 1020){
+                    new_map = 'Oof there are so many mentions to be displayed!'
+                  }else if(new_map.length === 0){
+                    new_map = 'None!'
                   }
                   console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   const channel_embed = new Discord.MessageEmbed()
