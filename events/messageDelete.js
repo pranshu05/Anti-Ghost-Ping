@@ -73,6 +73,7 @@ module.exports = {
                   .addFields({name: 'Their Message :', value: `${message.content}`})
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
+                  console.log(message.channel)
                   message.channel.send({embeds: [embed]})	
                 }
               }
