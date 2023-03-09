@@ -58,5 +58,5 @@ module.exports = {
       })
     })
     interaction.reply({ embeds: [redirect_embed] })
-  },
+  }
 }

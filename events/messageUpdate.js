@@ -38,7 +38,7 @@ module.exports = {
                 if(new_map.length > 1020){
                   new_map = 'Oof there are so many mentions to be displayed!'
                 }else if(new_map.length === 0){
-                  new_map = 'None!'
+                  new_map = '```None!```'
                 }
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
@@ -52,7 +52,6 @@ module.exports = {
                 )
                 .setThumbnail(oldMessage.author.displayAvatarURL())
                 .setTimestamp()
-                console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                 oldMessage.channel.send({embeds: [embed]})
               }
             }
@@ -72,7 +71,7 @@ module.exports = {
                   if(new_map.length > 1020){
                     new_map = 'Oof there are so many mentions to be displayed!'
                   }else if(new_map.length === 0){
-                    new_map = 'None!'
+                    new_map = '```None!```'
                   }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
@@ -86,7 +85,6 @@ module.exports = {
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
-                  console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   oldMessage.channel.send({embeds: [embed]})
                 }
               }
@@ -104,9 +102,8 @@ module.exports = {
                   if(new_map.length > 1020){
                     new_map = 'Oof there are so many mentions to be displayed!'
                   }else if(new_map.length === 0){
-                    new_map = 'None!'
+                    new_map = '```None!```'
                   }
-                  console.log(`${oldMessage.author.username} updated ghost pinged message in ${oldMessage.channel} in ${oldMessage.guild}`)
                   const channel_embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})

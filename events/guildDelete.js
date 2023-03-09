@@ -21,5 +21,5 @@ module.exports = {
       }
     })
     console.log(`Server left: ${guild.name}`)
-  },
+  }
 }

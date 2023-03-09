@@ -49,5 +49,5 @@ module.exports = {
       })
     })
     interaction.reply({ embeds: [activated_embed] })
-  },
+  }
 }

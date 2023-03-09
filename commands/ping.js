@@ -15,5 +15,5 @@ module.exports = {
         )
         .setFooter({text: `counted for ${interaction.user.username}`})
         interaction.reply({ embeds: [embed] })
-    }
+  }
 }

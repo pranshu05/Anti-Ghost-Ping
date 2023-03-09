@@ -43,5 +43,5 @@ module.exports = {
       }
       interaction.reply({ embeds: [deactivated_embed] })
     })
-  },
+  }
 }
