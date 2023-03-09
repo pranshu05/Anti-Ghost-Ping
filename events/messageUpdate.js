@@ -52,6 +52,7 @@ module.exports = {
                 )
                 .setThumbnail(oldMessage.author.displayAvatarURL())
                 .setTimestamp()
+                console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
                 oldMessage.channel.send({embeds: [embed]})
               }
             }
@@ -85,6 +86,7 @@ module.exports = {
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
+                  console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
                   oldMessage.channel.send({embeds: [embed]})
                 }
               }
@@ -117,6 +119,7 @@ module.exports = {
                   )
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
+                  console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
                   channel.send({embeds: [channel_embed]})
                 }
               }

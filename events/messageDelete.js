@@ -31,6 +31,7 @@ module.exports = {
                 )
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
+                console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                 message.channel.send({embeds: [embed]})	
               }else if(message.content.match('@everyone')){
                 const embed = new Discord.MessageEmbed()
@@ -40,6 +41,7 @@ module.exports = {
                 .addFields({name: 'Their Message :', value: `${message.content}`})
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
+                console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                 message.channel.send({embeds: [embed]})	
               }
             }
@@ -64,6 +66,7 @@ module.exports = {
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
+                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                   message.channel.send({embeds: [embed]})	
                 }else if(message.content.match('@everyone')){
                   const embed = new Discord.MessageEmbed()
@@ -73,7 +76,7 @@ module.exports = {
                   .addFields({name: 'Their Message :', value: `${message.content}`})
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
-                  console.log(message.channel)
+                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                   message.channel.send({embeds: [embed]})	
                 }
               }
@@ -97,6 +100,7 @@ module.exports = {
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
+                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                   channel.send({embeds: [embed]})	
                 }else if(message.content.match('@everyone')){
                   const embed = new Discord.MessageEmbed()
@@ -109,6 +113,7 @@ module.exports = {
                   )
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
+                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
                   channel.send({embeds: [embed]})	
                 }
               }
