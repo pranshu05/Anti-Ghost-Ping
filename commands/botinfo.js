@@ -21,7 +21,7 @@ module.exports = {
         .setColor('FFFF00')
         .setThumbnail(interaction.client.user.displayAvatarURL())
         .setTitle(interaction.client.user.username + ' V: ' + pkg.version + ' ' )
-        .setDescription(`**Anti ghost ping has been awake for ${days}d, ${hours}h, ${minutes}m, ${seconds}s**`)
+        .setDescription(`\n **Anti ghost ping has been awake for ${days}d, ${hours}h, ${minutes}m, ${seconds}s**`)
         .addFields(
             {name: '\u200B', value: '\u200B' },
             {name: '🏠 Guilds', value: `\`\`\`yml\n${interaction.client.guilds.cache.size}\`\`\``, inline: true},
