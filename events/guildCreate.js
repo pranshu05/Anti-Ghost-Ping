@@ -4,7 +4,7 @@ const { MessageActionRow, MessageButton } = require('discord.js')
 module.exports = {
 	name: 'guildCreate',
 	async execute(guild) {
-		const channel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
+		const channel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.members.me).has('SEND_MESSAGES'))
 		const ser = new MessageActionRow()
 		.addComponents(
 			new MessageButton()

@@ -13,7 +13,7 @@ module.exports = {
           return
         }else{
           if(!redirected){
-            if(!message.guild.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+            if(!message.guild.members.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
               return
             }else{
               if(message.content.match(regex)){
@@ -48,7 +48,7 @@ module.exports = {
           }else{
             const channel = message.guild.channels.cache.get(redirected.channel_id)
             if(!channel){
-              if(!message.guild.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+              if(!message.guild.members.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
                 if(message.content.match(regex)){
@@ -81,7 +81,7 @@ module.exports = {
                 }
               }
             }else{
-              if(!message.guild.me.permissionsIn(channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
+              if(!message.guild.members.me.permissionsIn(channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
                 if(message.content.match(regex)){
