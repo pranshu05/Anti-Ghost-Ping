@@ -28,7 +28,7 @@ module.exports = {
       return
     }
     if(!activated){
-      interaction.reply(`Ghost ping detection isnt activated yet in this server!`)
+      interaction.reply(`${interaction.user} **>> Ghost ping detection isnt activated yet in this server!**`)
       return
     }
     Activate.deleteOne({ guild_id: interaction.guild.id }, (err, settings) => {

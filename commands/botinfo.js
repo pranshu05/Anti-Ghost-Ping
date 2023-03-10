@@ -1,10 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders')
-const fs = require('fs')
-const dir = './commands'
-let commandsLength = 0
-fs.readdir(dir, (_err, files) => {
-    commandsLength = files.length
-})
+const os = require('os')
 const Discord = require('discord.js')
 const pkg = require('../package.json')
 module.exports = {
@@ -12,6 +7,10 @@ module.exports = {
     .setName('botinfo')
     .setDescription('Basic Information About me!'),
         async execute(interaction) {
+        let ut_days = Math.floor(interaction.client.uptime / 86400 )
+        let ut_hours = Math.floor(interaction.client.uptime / 3600 ) % 24 
+        let ut_minutes = Math.floor(interaction.client.uptime / 60) % 60
+        let ut_seconds = Math.floor(interaction.client.uptime) % 60
         let days = Math.floor(interaction.client.uptime / 86400000 )
         let hours = Math.floor(interaction.client.uptime / 3600000 ) % 24 
         let minutes = Math.floor(interaction.client.uptime / 60000) % 60
@@ -23,10 +22,11 @@ module.exports = {
         .setThumbnail(interaction.client.user.displayAvatarURL())
         .setTitle(interaction.client.user.username + ' V: ' + pkg.version + ' ' )
         .addFields(
-            { name: '\u200B', value: '\u200B' },
+            {name: '\u200B', value: '\u200B' },
             {name: '🏠 Guilds', value: `\`\`\`yml\n${interaction.client.guilds.cache.size}\`\`\``, inline: true},
             {name: '🤵 Total Users', value: `\`\`\`yml\n${(totalPeople)}\`\`\``, inline: true},
-            {name: ':floppy_disk: Uptime', value:  `\`\`\`yml\n${days}d, ${hours}h, ${minutes}m, ${seconds}s\n\`\`\``, inline: true},
+            {name: ':clock: System Uptime', value:  `\`\`\`yml\n${ut_days}d, ${ut_hours}h, ${ut_minutes}m, ${ut_seconds}s\n\`\`\``, inline: true},
+            {name: ':clock: Uptime', value:  `\`\`\`yml\n${days}d, ${hours}h, ${minutes}m, ${seconds}s\n\`\`\``, inline: true},
             {name: '🏓 Ping', value: `\`\`\`yml\n${(interaction.client.ws.ping).toFixed(0)} ms\`\`\``, inline: true},
             {name: ':control_knobs: Library', value: `\`\`\`yml\ndiscord.js v${Discord.version}\`\`\``, inline: true},
             {name: ':computer: Node.js Version', value: `\`\`\`yml\n${process.version}\`\`\``, inline: true},

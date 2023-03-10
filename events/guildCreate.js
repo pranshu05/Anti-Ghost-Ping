@@ -6,19 +6,19 @@ module.exports = {
 	async execute(guild) {
 		const channel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
 		const ser = new MessageActionRow()
-					.addComponents(
-						new MessageButton()
-    					.setLabel('Support Server')
-    					.setURL('https://discord.gg/CVyx9qyYPF')
-    					.setStyle('LINK'),
-					)
+		.addComponents(
+			new MessageButton()
+			.setLabel('Support Server')
+			.setURL('https://discord.gg/CVyx9qyYPF')
+			.setStyle('LINK'),
+		)
 		const embed = new Discord.MessageEmbed()
     	.setColor('FFFF00')
     	.setTitle('Hello I am Anti Ghost Ping bot,thanks for choosing me!')
     	.setDescription('Setup Instructions')
     	.addFields(
-      		{name: 'Activate Ghost Ping detection', value: '```/activate```', inline: true},
-      		{name: 'Deactivate Ghost Ping detection', value: '```/deactivate```', inline: true},
+			{name: 'Deactivate Ghost Ping detection', value: '```/deactivate```', inline: true},
+      		{name: 'Activate Ghost Ping detection', value: '```/activate```', inline: true}
     	)
     	.setTimestamp()
 		.setFooter({text: `Ghost ping detection is activated by default!`})
