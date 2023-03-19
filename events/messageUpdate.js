@@ -50,6 +50,7 @@ module.exports = {
                   {name: 'Old Mentions :' , value: `${old_map}`},
                   {name: 'New Mentions :' , value: `${new_map}`}
                 )
+                .setFooter({text: `[Go to message](${newMessage.url})`})
                 .setThumbnail(oldMessage.author.displayAvatarURL())
                 .setTimestamp()
                 console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
@@ -84,6 +85,7 @@ module.exports = {
                     {name: 'Old Mentions :' , value: `${old_map}`},
                     {name: 'New Mentions :' , value: `${new_map}`}
                   )
+                  .setFooter({text: `[Go to message](${newMessage.url})`})
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
                   console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
@@ -117,6 +119,7 @@ module.exports = {
                     {name: 'New Mentions :' , value: `${new_map}`},
                     {name: 'channel :' , value: `${oldMessage.channel}`}
                   )
+                  .setFooter({text: `[Go to message](${newMessage.url})`})
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
                   console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
