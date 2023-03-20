@@ -48,7 +48,8 @@ module.exports = {
                   {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
                   {name: 'Their NewMessage : ', value: `${newMessage.content}`},
                   {name: 'Old Mentions :' , value: `${old_map}`},
-                  {name: 'New Mentions :' , value: `${new_map}`}
+                  {name: 'New Mentions :' , value: `${new_map}`},
+                  {name: 'Go To Message' , value: `[Click Here](${newMessage.url})`}
                 )
                 .setFooter({text: `[Go to message](${newMessage.url})`})
                 .setThumbnail(oldMessage.author.displayAvatarURL())
@@ -83,9 +84,9 @@ module.exports = {
                     {name: 'Their OldMessage was :', value: `${oldMessage.content}`},
                     {name: 'Their NewMessage : ', value: `${newMessage.content}`},
                     {name: 'Old Mentions :' , value: `${old_map}`},
-                    {name: 'New Mentions :' , value: `${new_map}`}
+                    {name: 'New Mentions :' , value: `${new_map}`},
+                  {name: 'Go To Message' , value: `[Click Here](${newMessage.url})`}
                   )
-                  .setFooter({text: `[Go to message](${newMessage.url})`})
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
                   console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
@@ -117,9 +118,9 @@ module.exports = {
                     {name: 'Their NewMessage : ', value: `${newMessage.content}`},
                     {name: 'Old Mentions :' , value: `${old_map}`},
                     {name: 'New Mentions :' , value: `${new_map}`},
+                  {name: 'Go To Message' , value: `[Click Here](${newMessage.url})`},
                     {name: 'channel :' , value: `${oldMessage.channel}`}
                   )
-                  .setFooter({text: `[Go to message](${newMessage.url})`})
                   .setThumbnail(oldMessage.author.displayAvatarURL())
                   .setTimestamp()
                   console.log(`Ghost ping detected in Channel : ${oldMessage.channel.name} [${oldMessage.channel.id}] in Server: ${oldMessage.guild.name} [${oldMessage.guild.id}]`)
