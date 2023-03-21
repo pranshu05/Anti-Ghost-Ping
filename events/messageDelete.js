@@ -16,7 +16,7 @@ module.exports = {
             if(!message.guild.members.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
               return
             }else{
-              if(message.content.match(regex)){
+              if(message.content.match(regex) || message.content.match('@everyone')){
                 if(message.content.length === 0){ 
                   message.content = 'undefined'
                 }else if(message.content.length > 1024){
@@ -29,21 +29,12 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
                 .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
+                .setTitle('Ghost Ping Detected! :skull:')
                 .addFields(
+                  {name: 'Author :' , value: `${message.author}`},
                   {name: 'Their Message :', value: `${message.content}`},
                   {name: 'Mentions :' , value: `${map}`}
                 )
-                .setThumbnail(message.author.displayAvatarURL())
-                .setTimestamp()
-                console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
-                message.channel.send({embeds: [embed]})	
-              }else if(message.content.match('@everyone')){
-                const embed = new Discord.MessageEmbed()
-                .setColor('FF0000')
-                .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
-                .addFields({name: 'Their Message :', value: `${message.content}`})
                 .setThumbnail(message.author.displayAvatarURL())
                 .setTimestamp()
                 console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
@@ -56,34 +47,25 @@ module.exports = {
               if(!message.guild.members.me.permissionsIn(message.channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
-                if(message.content.match(regex)){
+                if(message.content.match(regex) || message.content.match('@everyone')){
                   if(message.content.length === 0){ 
                     message.content = 'undefined'
-                  }else if(message.content.length > 1020){ 
+                  }else if(message.content.length > 1024){ 
                     message.content = 'Message is too long to be displayed!'
                   }
                   let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
-                  if(map.length > 1020){ 
+                  if(map.length > 1024){ 
                     map = 'Oof there are so many mentions to be displayed!' 
                   }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                  .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
+                  .setTitle('Ghost Ping Detected! :skull:')
                   .addFields(
+                    {name: 'Author :' , value: `${message.author}`},
                     {name: 'Their Message :', value: `${message.content}`},
                     {name: 'Mentions :' , value: `${map}`}
                   )
-                  .setThumbnail(message.author.displayAvatarURL())
-                  .setTimestamp()
-                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
-                  message.channel.send({embeds: [embed]})	
-                }else if(message.content.match('@everyone')){
-                  const embed = new Discord.MessageEmbed()
-                  .setColor('FF0000')
-                  .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                  .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
-                  .addFields({name: 'Their Message :', value: `${message.content}`})
                   .setThumbnail(message.author.displayAvatarURL())
                   .setTimestamp()
                   console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
@@ -94,36 +76,24 @@ module.exports = {
               if(!message.guild.members.me.permissionsIn(channel).has(Discord.Permissions.FLAGS.SEND_MESSAGES)){
                 return
               }else{
-                if(message.content.match(regex)){
+                if(message.content.match(regex) || message.content.match('@everyone')){
                   if(message.content.length === 0){ 
                     message.content = 'undefined'
-                  }else if(message.content.length > 1020){ 
+                  }else if(message.content.length > 1024){ 
                     message.content = 'Message is too long to be displayed!' 
                   }
                   let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
-                  if(map.length > 1020){ 
+                  if(map.length > 1024){ 
                     map = 'Oof there are so many mentions to be displayed!' 
                   }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                  .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping a user..`)
+                  .setTitle('Ghost Ping Detected! :skull:')
                   .addFields(
+                    {name: 'Author :' , value: `${message.author}`},
                     {name: 'Their Message :', value: `${message.content}`},
                     {name: 'Mentions :' , value: `${map}`},
-                    {name: 'channel :' , value: `${message.channel}`}
-                  )
-                  .setThumbnail(message.author.displayAvatarURL())
-                  .setTimestamp()
-                  console.log(`Ghost ping detected in Channel : ${message.channel.name} [${message.channel.id}] in Server: ${message.guild.name} [${message.guild.id}]`)
-                  channel.send({embeds: [embed]})	
-                }else if(message.content.match('@everyone')){
-                  const embed = new Discord.MessageEmbed()
-                  .setColor('FF0000')
-                  .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                  .setDescription(`Well well well, <@${message.author.id}> decided to ghost-ping everyone..`)
-                  .addFields(
-                    {name: 'Their Message :', value: `${message.content}`},
                     {name: 'channel :' , value: `${message.channel}`}
                   )
                   .setThumbnail(message.author.displayAvatarURL())
