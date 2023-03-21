@@ -26,6 +26,9 @@ module.exports = {
                 if(map.length > 1024){
                   map = 'Oof there are so many mentions to be displayed!' 
                 }
+                if(map.length === 0){
+                  map = '@everyone'
+                }
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
                 .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
@@ -57,6 +60,9 @@ module.exports = {
                   if(map.length > 1024){ 
                     map = 'Oof there are so many mentions to be displayed!' 
                   }
+                  if(map.length === 0){
+                    map = '@everyone'
+                  }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
@@ -85,6 +91,9 @@ module.exports = {
                   let map = message.mentions.members.sort((a, b) => b.position - a.position).map(r => r).join(' ')
                   if(map.length > 1024){ 
                     map = 'Oof there are so many mentions to be displayed!' 
+                  }
+                  if(map.length === 0){
+                    map = '@everyone'
                   }
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
