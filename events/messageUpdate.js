@@ -6,6 +6,7 @@ module.exports = {
     async execute(oldMessage, newMessage) {
         if(oldMessage.author.bot) return
         if(!oldMessage.content) return
+        if(!oldMessage.guild) return
         const regex = /<@!?(1|\d{17,19})>/
         const activated = await Activate.findOne({guild_id: oldMessage.guild.id})
         const redirected = await Redirect.findOne({guild_id: oldMessage.guild.id})
@@ -33,7 +34,7 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
                 .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})
-                .setTitle('Ghost Ping Detected! :skull:')
+                .setDescription('**Ghost Ping Detected! :skull:**')
                 .addFields(
                   {name: 'Author :' , value: `${newMessage.author}`},
                   {name: 'Old Mentions :' , value: `${old_map}`},
@@ -67,7 +68,7 @@ module.exports = {
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})
-                  .setTitle('Ghost Ping Detected! :skull:')
+                  .setDescription('**Ghost Ping Detected! :skull:**')
                   .addFields(
                     {name: 'Author :' , value: `${newMessage.author}`},
                     {name: 'Old Mentions :' , value: `${old_map}`},
@@ -99,7 +100,7 @@ module.exports = {
                   const channel_embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${oldMessage.author.username}`, iconURL: `${oldMessage.author.displayAvatarURL()}`})
-                  .setTitle('Ghost Ping Detected! :skull:')
+                  .setDescription('**Ghost Ping Detected! :skull:**')
                   .addFields(
                     {name: 'Author :' , value: `${newMessage.author}`},
                     {name: 'Old Mentions :' , value: `${old_map}`},

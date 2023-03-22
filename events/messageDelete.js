@@ -6,6 +6,7 @@ module.exports = {
     async execute(message){
         if(message.author.bot) return
         if(!message.content) return
+        if(!message.guild) return
         const regex = /<@!?(1|\d{17,19})>/
         const activated = await Activate.findOne({guild_id: message.guild.id})
         const redirected = await Redirect.findOne({guild_id: message.guild.id})
@@ -32,7 +33,7 @@ module.exports = {
                 const embed = new Discord.MessageEmbed()
                 .setColor('FF0000')
                 .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                .setTitle('Ghost Ping Detected! :skull:')
+                .setDescription('**Ghost Ping Detected! :skull:**')
                 .addFields(
                   {name: 'Author :' , value: `${message.author}`},
                   {name: 'Their Message :', value: `${message.content}`},
@@ -66,7 +67,7 @@ module.exports = {
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                  .setTitle('Ghost Ping Detected! :skull:')
+                  .setDescription('**Ghost Ping Detected! :skull:**')
                   .addFields(
                     {name: 'Author :' , value: `${message.author}`},
                     {name: 'Their Message :', value: `${message.content}`},
@@ -98,7 +99,7 @@ module.exports = {
                   const embed = new Discord.MessageEmbed()
                   .setColor('FF0000')
                   .setAuthor({name: `${message.author.username}`, iconURL: `${message.author.displayAvatarURL()}`})
-                  .setTitle('Ghost Ping Detected! :skull:')
+                  .setDescription('**Ghost Ping Detected! :skull:**')
                   .addFields(
                     {name: 'Author :' , value: `${message.author}`},
                     {name: 'Their Message :', value: `${message.content}`},
