@@ -24,7 +24,7 @@ MONGO_URL=
 token=
 ```
 
-# Setup The Bot in a Server
+# 🛠️ Setup The Bot in a Server
 
 Bot's ghost ping detection is activated by default when it joins a server....However you can use `/redirect` command to redirect bot's logging messages in a particular channel. To deactivate the ghost ping detection you can use `/deactivate` command.
 
